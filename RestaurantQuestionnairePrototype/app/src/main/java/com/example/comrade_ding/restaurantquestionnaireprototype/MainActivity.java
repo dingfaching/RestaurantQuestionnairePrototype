@@ -8,6 +8,7 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button btn_startQuestionnaire;
     private Button btn_user_prefs = null;
 
     @Override
@@ -29,10 +30,22 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Start Questionnaire
+        this.btn_startQuestionnaire = (Button) findViewById(R.id.btn_start_questionnaire);
+        this.btn_startQuestionnaire.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                launch_questionnaire();
+            }
+        });
     }
 
     private void launch_user_prefs() {
         Intent intent = new Intent(this, UserPreferencesActivity.class);
+        startActivity(intent);
+    }
+
+    private void launch_questionnaire() {
+        Intent intent = new Intent(this, BeginQuestionnaireActivity.class);
         startActivity(intent);
     }
 }
