@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBackground">#177E89</color>
+    <color name="colorTagSelected">#4DCCBD</color>
+    <color name="colorLight">#D6FFF6</color>
+    <color name="colorButton">#FF8484</color>
+    <color name="colorTag">#231651</color>
+</resources>
