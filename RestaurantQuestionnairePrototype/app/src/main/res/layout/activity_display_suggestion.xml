@@ -27,15 +27,20 @@
     <View
         android:id="@+id/view_restaurant_info"
         android:layout_width="325dp"
-        android:layout_height="205dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="150dp"
         android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.511"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/btn_chose_option"
@@ -75,5 +80,52 @@
         android:textColor="@color/colorMid"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_restaurantPage"
+        android:layout_width="155dp"
+        android:layout_height="37dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/bg_button"
+        android:text="Restaurant Page"
+        android:textColor="@color/colorMid"
+        app:layout_constraintBottom_toBottomOf="@+id/view_restaurant_info"
+        app:layout_constraintEnd_toEndOf="@+id/view_restaurant_info"
+        app:layout_constraintStart_toStartOf="@+id/view_restaurant_info" />
+
+    <TextView
+        android:id="@+id/label_restaurantName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Title"
+        android:textColor="@color/colorLight"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/view_restaurant_info"
+        app:layout_constraintStart_toStartOf="@+id/view_restaurant_info"
+        app:layout_constraintTop_toTopOf="@+id/view_restaurant_info" />
+
+    <LinearLayout
+        android:id="@+id/layout_tags"
+        android:layout_width="0dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/view_restaurant_info"
+        app:layout_constraintStart_toStartOf="@+id/view_restaurant_info"
+        app:layout_constraintTop_toBottomOf="@+id/label_restaurantName"></LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

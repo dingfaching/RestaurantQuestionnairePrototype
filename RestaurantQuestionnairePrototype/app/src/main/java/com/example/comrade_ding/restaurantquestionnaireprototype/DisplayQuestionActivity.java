@@ -31,19 +31,6 @@ public class DisplayQuestionActivity extends AppCompatActivity {
 
         askQuestion();
 
-        for(int questionNum = 1; questionNum <= numQuestions; questionNum++) {
-
-            Question question = Question.askQuestion();
-
-            if(question instanceof BinaryQuestion) {
-                this.btn_answerOne.setText(((BinaryQuestion) question).getTagOne());
-                this.btn_answerTwo.setText(((BinaryQuestion) question).getTagTwo());
-            } else {
-                this.btn_answerOne.setText("No");
-                this.btn_answerOne.setText("Yes");
-            }
-        }
-
     }
 
     private void askQuestion() {
