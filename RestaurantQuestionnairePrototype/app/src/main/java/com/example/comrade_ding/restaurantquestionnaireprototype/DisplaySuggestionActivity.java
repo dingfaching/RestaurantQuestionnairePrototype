@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -34,9 +35,11 @@ public class DisplaySuggestionActivity extends AppCompatActivity {
     public void next_restaurant() {
         this.currentRestaurant = Restaurant.getRestaurant();
         if(this.currentRestaurant == null) {
+            launch_outOfOptions();
             finish();
+        } else {
+            display_restaurant(currentRestaurant);
         }
-        display_restaurant(currentRestaurant);
 
     }
 
@@ -64,13 +67,14 @@ public class DisplaySuggestionActivity extends AppCompatActivity {
 
     public void fill_tags(Restaurant restaurant) {
 
-        ViewGroup horizontalLayout = (ViewGroup) findViewById(R.id.layout_tags);
+        ViewGroup verticalLayout = (ViewGroup) findViewById(R.id.layout_tags);
+        verticalLayout.removeAllViews();
 
         ArrayList<String> tags = restaurant.getTags();
         int id = 0;
         for(String tag : tags) {
-            TextView button = createLabel(id, tag);
-            horizontalLayout.addView(button);
+            TextView tagLabel = createLabel(id, tag);
+            verticalLayout.addView(tagLabel);
             id++;
         }
 
@@ -80,7 +84,9 @@ public class DisplaySuggestionActivity extends AppCompatActivity {
         TextView tagLabel = new TextView(this);
         tagLabel.setText(tag);
         tagLabel.setTextColor(getResources().getColor(R.color.colorLight));
-        tagLabel.setTextSize(18.0f);
+        tagLabel.setTextSize(12.0f);
+        tagLabel.setGravity(Gravity.CENTER_HORIZONTAL);
+        tagLabel.setPadding(4, 2, 4, 2);
 
         return tagLabel;
     }
@@ -98,7 +104,10 @@ public class DisplaySuggestionActivity extends AppCompatActivity {
         this.btn_chose_option.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                Uri gmvUri = Uri.parse("geo:47.9252, -97.0328?q=" + currentRestaurant.getName());
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmvUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
 
@@ -109,5 +118,10 @@ public class DisplaySuggestionActivity extends AppCompatActivity {
                 next_restaurant();
             }
         });
+    }
+
+    private void launch_outOfOptions() {
+        Intent launchOutOfOptions = new Intent(this, OutOfOptionsActivity.class);
+        startActivity(launchOutOfOptions);
     }
 }

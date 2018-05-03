@@ -35,7 +35,7 @@ public class Restaurant {
     ));
 
     public static Restaurant getRestaurant() {
-        if(index > sampleRestaurants.size()) {
+        if(index == sampleRestaurants.size()) {
             return null;
         }
 
