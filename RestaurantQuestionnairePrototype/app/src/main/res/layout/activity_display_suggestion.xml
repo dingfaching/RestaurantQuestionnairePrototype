@@ -135,4 +135,25 @@
         app:layout_constraintStart_toStartOf="@+id/view_restaurant_info"
         app:layout_constraintTop_toBottomOf="@+id/label_restaurantName"></LinearLayout>
 
+    <TextView
+        android:id="@+id/label_yelpDisplay"
+        android:layout_width="250dp"
+        android:layout_height="94dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorMid"
+        android:fontFamily="sans-serif-smallcaps"
+        android:gravity="center"
+        android:text="Yelp Display Requirement Goes Here When Ready"
+        android:textColor="@color/colorLight"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_restaurantPage"
+        app:layout_constraintEnd_toEndOf="@+id/view_restaurant_info"
+        app:layout_constraintStart_toStartOf="@+id/view_restaurant_info"
+        app:layout_constraintTop_toBottomOf="@+id/layout_tags" />
+
 </android.support.constraint.ConstraintLayout>
